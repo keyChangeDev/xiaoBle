@@ -4,7 +4,7 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define XXX &none
-#define ___ &trans
+//#define ___ &trans
 
 #define COMBO_TIMEOUT 60
 
@@ -65,15 +65,11 @@
                 DEF_layer {
                         display-name = "Base";
                         bindings = <
-            //╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-&bht LS(LC(LALT)) ESC  &bht LS(LC(LALT)) Q   &kp W    &kp E         &kp R         &kp T             &kp Y         &kp U         &bht PIPE I   &kp O         &lt FN P      &kp DEL
-            //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼──────[───────┼──────|──────┼─────────────┼─────────────┤ ├──────┤
-&bht LS(LC(LA(LGUI))) TAB   &bht LG(A) A     &kp S    &kp D      &bht LG(F) F     &kp G            &bht HASH H    &kp J         &kp K         &kp L         &kp RET       &kp RSHFT
-            //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├──────#──────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-&bht LCTRL BSPC    &lt FN Z    &bht LG(X) X   &bht LG(C) C   &bht LG(V) V  &bht LS(LC(LA(V))) B     &kp N         &kp M       &bht SEMI COMMA &bht COLON DOT &bht SQT QMARK  &kp RALT
-            //├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
-                                                    &kp LSHFT      &sk LGUI      &lt NAV SPC       &lt NUM SPC    &kp BSPC    &bht RS(RC(RA(RGUI))) RS(RC(RA(H)))
-             //                                    ╰────────────┼──────────────┴─────────────╯   ╰─────────────┴─────────────┼─────────────╯
+//                                                         |
+&kp ESC       &kp Q    &kp W    &kp E    &kp R    &kp T         &kp Y    &kp U    &kp I        &kp O         &lt NAV P        &kp DEL
+&lt FN TAB    &kp A    &kp S    &kp D    &kp F    &kp G         &kp H    &kp J    &kp K        &kp L         &kp SEMICOLON    &kp APOSTROPHE
+&kp LCTRL     &kp Z    &kp X    &kp C    &kp V    &kp B         &kp N    &kp M    &kp COMMA    &kp PERIOD    &kp SLASH        &bht RCTRL CLCK
+       &bht LALT F12    &lt NUM BSPC    &bht LSHFT LGUI         &bht RSHFT ENTER     &lt NUM SPC    &bht RALT INS
                         >;
                 };
 
@@ -82,60 +78,43 @@
                 NAV_layer {
                         display-name = "Navigation";
                         bindings = <
-//╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    ___      &kp ESC       &kp LS(LC(TAB)) &kp UP      &kp LC(TAB)    &kp LG(TAB)      &kp FSLH     &kp UNDER     &kp PIPE       ___           ___           ___
-//├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼───toggle────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    ___      &kp TAB       &kp LEFT      &kp DOWN      &kp RIGHT       ___             &kp HASH     &kp HASH      &kp DOWN      &kp RIGHT      ___           ___
-//├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    ___      ___            ___           ___           ___            ___             &kp AMPS      ___           ___           ___           ___           ___
-//├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
-                                          ___           ___            ___             ___           ___          ___
-//                                      ╰────────────╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯─────────────╯                                           
+//                                                                                  |
+&trans    &kp ESC      &kp LS(LC(TAB))    &kp UP      &kp LC(TAB)    &kp LG(TAB)         &kp FSLH    &kp UNDER    &kp PIPE    &trans       &trans    &trans
+&trans    &kp TAB      &kp LEFT           &kp DOWN    &kp RIGHT      &trans              &kp HASH    &kp HASH     &kp DOWN    &kp RIGHT    &trans    &trans
+&trans    &kp PG_UP    &kp HOME           &kp END     &kp PG_DN      &trans              &kp AMPS    &trans       &trans      &trans       &trans    &trans
+                                                      &trans    &trans    &trans         &trans      &trans       &trans
                         >;
                 };
 
                 FN_layer {
                         display-name = "Function, F key";
                         bindings = <
-//╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    ___        ___         ___           ___           ___          ___              ___            &kp F7        &kp F8        &kp F9         &kp F12       ___
-//├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    ___        ___         ___           ___           ___          ___              ___            &kp F4        &kp F5        &kp F6         &kp F11       ___
-//├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    ___        ___         ___           ___           ___          ___              ___            &kp F1        &kp F2        &kp F3         &kp F10       ___
-//├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
-                                               ___        ___           ___            ___           ___           ___                                       
-//                                           ╰──────╯╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯╰──────╯                                           
+//                                                           |
+&trans    &kp F7    &kp F8    &kp F9    &kp F12    &trans         &kp KP_NLCK    &kp KP_N7    &kp KP_N8    &kp KP_N9    &kp KP_PLUS        &kp KP_MINUS
+&trans    &kp F4    &kp F5    &kp F6    &kp F11    &trans         &trans         &kp KP_N4    &kp KP_N5    &kp KP_N6    &kp KP_MULTIPLY    &kp KP_DIVIDE
+&trans    &kp F1    &kp F2    &kp F3    &kp F10    &trans         &kp N0         &kp KP_N1    &kp KP_N2    &kp KP_N3    &kp KP_DOT         &kp KP_ENTER
+                               &trans    &trans    &trans         &trans    &trans    &trans                                       
                         >;
 		};
 		
 		        NUM_layer {
                         display-name = "Number, Symbol";
                         bindings = <
-//╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────────────┬──────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    ___     &bht DQT QMARK &kp LT        &kp HASH      &kp GT        &kp BSLH       &bht EXCL EQUAL  &bht PLUS N7 &bht MINUS N8 &bht UNDER N9  &kp RG(P)     ___
-//├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────=!──────┼──────7+──────┼─────8-──────┼─────9_──────┼─────────────┤ ├──────┤
-    ___     &kp AT         &kp LPAR      &kp MINUS     &kp RPAR      &kp GRAVE      &bht HASH KP_DOT &bht STAR N4 &bht FSLH N5  &bht BSLH N6  ___           ___
-//├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────.#──────┼─────4*───────┼──────5/─────┼──────6\─────┼─────────────┤ ├──────┤
-    ___     ___            &kp LBKT        &kp PIPE    &kp RBRC      ___            &bht PRCNT N0   &bht PIPE N1   &bht AMPS N2  &bht HASH N3  ___           ___
-//├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├──────0%──────┼──────1|──────┼─────2&──────┼──────3──────┼─────────────╯ ╰──────╯
-                                         ___           ___           ___             ___           &kp DEL        ___                                    
-//                                     ╰─────────────┴─────────────┴─────────────╯ ╰──────────────┴──────────────┼─────────────╯                                     
+//                                                                         |
+&kp GRAVE    &kp N1       &kp N2      &kp N3      &kp N4      &kp N5            &kp N6       &kp N7      &kp N8      &kp N9           &kp N0      &kp MINUS
+&kp TILDE    &kp EXCL     &kp AT      &kp HASH    &kp DLLR    &kp PRCNT         &kp CARET    &kp AMPS    &kp STAR    &kp LPAR         &kp RPAR    &kp PLUS
+&none        &none        &kp UNDER   &kp RBKT    &kp LBKT    &kp GRAVE         &kp EQUAL    &kp LBRC    &kp RBRC    &kp BACKSLASH    &kp PIPE    &none
+                                         &trans    &trans     &trans            &trans    &trans    &trans                                    
                         >;
 		};
 
                         		SYS_layer {
                         display-name = "Bluetooth, Reset";
                         bindings = <
-//╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    ___    &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3   &bt BT_CLR       &bt BT_CLR    &bt BT_SEL 0  ___           ___           ___             ___
-//├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    ___     &kp A         ___           ___           ___            &bootloader      &bootloader   ___           ___           ___           &kp A           ___
-//├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    ___     ___           ___           ___           ___            &sys_reset       &sys_reset    ___           ___           ___           ___             ___
-//├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
-    ___                                                ___           ___              ___           ___                                                       ___
-//╰──────╯                                           ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯                                           ╰──────╯
+    &trans    &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3   &bt BT_CLR       &bt BT_CLR    &bt BT_SEL 0  &trans           &trans           &trans             &trans
+    &trans     &kp A         &trans           &trans           &trans            &bootloader      &bootloader   &trans           &trans           &trans           &kp A           &trans
+    &trans     &trans           &trans           &trans           &trans            &sys_reset       &sys_reset    &trans           &trans           &trans           &trans             &trans
+    &trans                                                &trans           &trans              &trans           &trans                                                       &trans
                         >;
 		};
 
